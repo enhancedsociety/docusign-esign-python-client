@@ -24,7 +24,7 @@ from time import time
 
 import jwt
 # python 2 and python 3 compatibility library
-from six import PY3, integer_types, iteritems, text_type
+from six import iteritems
 from six.moves.urllib.parse import quote
 
 from docusign_esign import client
@@ -53,10 +53,10 @@ class ApiClient(object):
     :param header_value: a header value to pass when making calls to the API.
     """
 
-    PRIMITIVE_TYPES = (float, bool, bytes, text_type) + integer_types
+    PRIMITIVE_TYPES = (float, bool, bytes, str, int)
     NATIVE_TYPES_MAPPING = {
         'int': int,
-        'long': int if PY3 else long,
+        'long': int,
         'float': float,
         'str': str,
         'bool': bool,
@@ -179,8 +179,7 @@ class ApiClient(object):
             if response_type and response_type != "file":
                 # In the python 3, the response.data is bytes.
                 # we need to decode it to string.
-                if PY3:
-                    r.data = r.data.decode('utf8', 'replace')
+                r.data = r.data.decode('utf8', 'replace')
                 return_data = self.deserialize(r, response_type)
             elif response_type:
                 return_data = self.deserialize(r, response_type)
@@ -686,7 +685,7 @@ class ApiClient(object):
         later = now + (expires_in * 1)
         claim = {"iss": client_id, "sub": user_id, "aud": oauth_host_name, "iat": now, "exp": later,
                  "scope": " ".join(scopes)}
-        token = jwt.encode(payload=claim, key=private_key_bytes, algorithm='RS256').decode("utf-8")
+        token = jwt.encode(payload=claim, key=private_key_bytes, algorithm='RS256')
         response = self.request("POST", "https://" + oauth_host_name + "/oauth/token",
                                 headers=self.sanitize_for_serialization(
                                     {"Content-Type": "application/x-www-form-urlencoded"}),

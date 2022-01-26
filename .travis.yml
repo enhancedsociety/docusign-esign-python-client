@@ -4,7 +4,6 @@ branches:
     - v2-master
 language: python
 python:
-  - "2.7"
   - "3.7"
   - "nightly" # points to the latest development branch e.g. 3.7-dev
 # command to install dependencies

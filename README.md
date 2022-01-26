@@ -9,11 +9,8 @@
 [Documentation about DocuSign APIs](https://developers.docusign.com/)
 
 ## Requirements
-*   Python 2.7 (3.7+ recommended)
+*   Python 3.7+
 *   Free [developer account](https://go.docusign.com/sandbox/productshot/?elqCampaignId=16531)
-
-## Compatibility
-*   Python 2.7+
 
 ## Installation
 This SDK is provided as open source, which enables you to customize its functionality to suit your particular use case. To do so, download or clone the repository. If the SDK’s given functionality meets your integration needs, or if you’re working through our [code examples](https://developers.docusign.com/docs/esign-rest-api/how-to/) from the [DocuSign Developer Center](https://developers.docusign.com/), you merely need to install it by following the instructions below.
@@ -21,8 +18,8 @@ This SDK is provided as open source, which enables you to customize its function
 ### Path setup:
 1. Locate your Python installation, also referred to as a **site-packages** folder. This folder is usually labeled in a format of **Python{VersionNumber}**.  
     **Examples:**
-    *   Unix/Linux: **/usr/lib/python2.7**
-    *   Mac: **/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7**
+    *   Unix/Linux: **/usr/lib/python3.7**
+    *   Mac: **/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7**
     *   Windows: **C:\Users{username}\AppData\Local\Programs\Python\Python37**
 2. Add your Python folder’s path to your system as an environment variable.  
     **Unix/Linux:**

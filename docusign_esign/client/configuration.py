@@ -18,7 +18,7 @@ import urllib3
 import sys
 import logging
 
-from six import iteritems, PY3
+from six import iteritems
 from six.moves import http_client as httplib
 
 
@@ -89,10 +89,7 @@ class Configuration(object):
         # client key file
         self.key_file = None
 
-        if PY3:
-            self.user_agent = 'Swagger-Codegen/v2.1/3.12.0/python3'
-        else:
-            self.user_agent = 'Swagger-Codegen/v2.1/3.12.0/python2'
+        self.user_agent = 'Swagger-Codegen/v2.1/3.12.0/python3'
 
     @property
     def logger_file(self):
